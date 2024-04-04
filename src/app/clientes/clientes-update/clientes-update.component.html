@@ -1,0 +1,49 @@
+<h1 class="mt-4">Clientes</h1>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item active">Atualização</li>
+</ol>
+<div class="container">
+    <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
+    
+        <div class="row" *ngIf="cliente.id">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">ID:</label>
+                    <input type="text" class="form-control"  disabled [ngModel]="cliente.id" name="id"/>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Data Cadastro:</label>
+                    <input type="text" class="form-control" disabled [ngModel]="cliente.dataCadastro" name="dataCadastro"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Nome:</label>
+                    <input type="text" class="form-control" [(ngModel)]="cliente.nome" name="nome" maxlength="150" minlength="4"/>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">CPF:</label>
+                    <input type="text" class="form-control" [(ngModel)]="cliente.cpf" name="cpf" id="cpf" maxlength="14" mask="000.000.000-00" placeholder="Digite seu CPF"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-sync-alt"></i> Atualizar
+                </button>
+                <button type="button"  (click)="voltar()" class="btn btn-danger ml-1">
+                    <i class="fa fa-arrow-alt-circle-left"></i> Voltar
+                </button>
+            </div>
+        </div>        
+    </form>
+</div>
+
+
